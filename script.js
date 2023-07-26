@@ -1,3 +1,4 @@
+const readline = require('readline-sync');
 // Ask user input
 // Take input and compare with computer
 // assign objects to numbers so computer can randomize
@@ -6,7 +7,38 @@
 // create conditional statements
 // points tracker
 
-const readline = require('readline-sync');
 
-let playerChoice = readline.question("What is your name? ");
-console.log(playerChoice);
+// Choices
+const playerChoice = readline.question("rock, paper, or scissors? ").toLowerCase();
+const rpsChoices = ["rock", "paper", "scissors"];
+
+
+//Computer choice maker
+let compChoice = (listChoices) => {
+	const randNum = Math.floor(Math.random() * 3);
+	const choice = listChoices[randNum];
+	return choice;
+}
+
+if (playerChoice == compChoice(rpsChoices)){
+	console.log("Tie");
+} else if (playerChoice == "rock"){
+	if (compChoice(rpsChoices) == "scissors"){
+		console.log("Player Wins")
+	} else {
+		console.log("Computer Wins")
+	}
+} else if (playerChoice == "paper"){
+	if (compChoice(rpsChoices) == "rock"){
+		console.log("Player Wins")
+	} else {
+		console.log("Computer Wins")
+	}
+} else if (playerChoice == "scissors"){
+	if (compChoice(rpsChoices) == "paper"){
+		console.log("Player Wins")
+	} else {
+		console.log("Computer Wins")
+	}
+}
+
