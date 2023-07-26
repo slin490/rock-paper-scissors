@@ -1,48 +1,49 @@
 const readline = require('readline-sync');
-// Ask user input
-// Take input and compare with computer
-// assign objects to numbers so computer can randomize
-// use random function to choose between 1-3
-// compare your input with computer
-// create conditional statements
-// points tracker
 
-
-// Choices
-const playerChoice = readline.question("rock, paper, or scissors? \n").toLowerCase();
+const gamePlays = Number(readline.question("How many games? \n"));
 const rpsChoices = ["rock", "paper", "scissors"];
+let compPoints = 0;
+let playerPoints = 0;
 
-//Computer choice maker
-const compDecider = (listChoices) => {
-	const randNum = Math.floor(Math.random() * 3);
-	const choice = listChoices[randNum];
-	return choice;
+for (let i = 0; i < gamePlays; i++){
+	const playerChoice = readline.question("rock, paper, or scissors? \n").toLowerCase();
+	
+	const compDecider = (listChoices) => {
+		const randNum = Math.floor(Math.random() * 3);
+		const choice = listChoices[randNum];
+		return choice;
+	}
+
+	const compChoice = compDecider(rpsChoices);
+
+	console.log(`You chose ${playerChoice}`);
+	console.log(`Computer chose ${compChoice}\n`)
+
+	if (playerChoice == compChoice){
+		console.log("Tie");
+	} else if (playerChoice == "rock"){
+		if (compChoice == "scissors"){
+			console.log("Player Wins");
+			playerPoints += 1;
+		} else {
+			console.log("Computer Wins");
+			compPoints += 1;
+		}
+	} else if (playerChoice == "paper"){
+		if (compChoice == "rock"){
+			console.log("Player Wins");
+			playerPoints += 1;
+		} else {
+			console.log("Computer Wins");
+			compPoints += 1;
+		}
+	} else if (playerChoice == "scissors"){
+		if (compChoice == "paper"){
+			console.log("Player Wins");
+			playerPoints += 1;
+		} else {
+			console.log("Computer Wins");
+			compPoints += 1;
+		}
+	}
 }
-
-const compChoice = compDecider(rpsChoices);
-
-console.log(`You chose ${playerChoice}`);
-console.log(`Computer chose ${compChoice}`)
-
-if (playerChoice == compChoice){
-	console.log("Tie");
-} else if (playerChoice == "rock"){
-	if (compChoice == "scissors"){
-		console.log("Player Wins")
-	} else {
-		console.log("Computer Wins")
-	}
-} else if (playerChoice == "paper"){
-	if (compChoice == "rock"){
-		console.log("Player Wins")
-	} else {
-		console.log("Computer Wins")
-	}
-} else if (playerChoice == "scissors"){
-	if (compChoice == "paper"){
-		console.log("Player Wins")
-	} else {
-		console.log("Computer Wins")
-	}
-}
-
