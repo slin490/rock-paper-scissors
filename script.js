@@ -6,3 +6,7 @@
 // create conditional statements
 // points tracker
 
+const readline = require('readline-sync');
+
+let playerChoice = readline.question("What is your name? ");
+console.log(playerChoice);
