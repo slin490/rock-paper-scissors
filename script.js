@@ -9,7 +9,7 @@ const readline = require('readline-sync');
 
 
 // Choices
-const playerChoice = readline.question("rock, paper, or scissors? ").toLowerCase();
+const playerChoice = readline.question("rock, paper, or scissors? \n").toLowerCase();
 const rpsChoices = ["rock", "paper", "scissors"];
 
 //Computer choice maker
@@ -20,6 +20,9 @@ const compDecider = (listChoices) => {
 }
 
 const compChoice = compDecider(rpsChoices);
+
+console.log(`You chose ${playerChoice}`);
+console.log(`Computer chose ${compChoice}`)
 
 if (playerChoice == compChoice){
 	console.log("Tie");
